@@ -1,0 +1,91 @@
+format = '''\\
+$username@$hostname:$directory $git_branch $git_status $python
+ \\
+\\
+$status
+'''
+
+[username]
+style_user = 'fg:red bold'
+show_always = true
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = "fg:green bold"
+format = '[$ssh_symbol$hostname]($style)'
+
+[directory]
+style = "fg:blue bold"
+read_only = "[]"
+format = '[$path $read_only]($style)'
+#truncation_symbol = "…/"
+truncation_length = -1
+
+[git_branch]
+symbol = ""
+style = "fg:bright-red"
+format = '[─\[](fg:red)[$branch]($style)[\]](fg:red)'
+
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+# ahead = '⇡${count}'
+# diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+# behind = '⇣${count}'
+style = "fg:bright-green"
+format = '[\[](fg:green)[$all_status$ahead_behind]($style)[\]](fg:green)'
+
+[java]
+style = "fg:bright-black"
+format = '[  ](fg:black)[$symbol${version}]($style)'
+symbol = "[ ](fg:#d65d0e)"
+
+[nodejs]
+style = "fg:bright-black"
+format = '[  ](fg:black)[${version}]($style) '
+symbol = "[ ](fg:green)"
+
+[python]
+style = "fg:bright-blue"
+format = '[  ](fg:blue)[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+version_format = 'v${major}.${minor}'
+symbol = "[ ](fg:#417fb1)"
+
+[rust]
+style = "fg:bright-black"
+format = '[  ](fg:black)[${symbol}${version}]($style) '
+symbol = "[ ](fg:yellow)"
+
+[cmd_duration]
+style = "fg:yellow"
+min_time = 1
+show_milliseconds = true
+format = '[\[](fg:red)[⏱ $duration]($style)[\]](fg:red)'
+
+[shell]
+fish_indicator = '󰈺 '
+bash_indicator = '󱆃'
+zsh_indicator = '󱆃'
+powershell_indicator = '_'
+unknown_indicator = ''
+style = 'cyan bold'
+disabled = false
+
+[status]
+style = 'fg:white'
+symbol = '[ ](fg:bright-red)'
+success_symbol = '[ ](fg:bright-green)'
+format = '[$symbol]($style) '
+map_symbol = true
+disabled = false
+
